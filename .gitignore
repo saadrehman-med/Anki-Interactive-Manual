@@ -1,0 +1,23 @@
+# Dependencies and build outputs
+node_modules/
+public/
+.quartz-cache/
+.quartz/
+tsconfig.tsbuildinfo
+
+# Isolated sandbox Anki profile & runtime databases/logs (NEVER commit!)
+sandbox-anki/
+
+# Python virtualenvs & caches
+.venv/
+tools/.venv/
+__pycache__/
+*.py[cod]
+
+# Temporary clones & scratch
+_tmp_anki/
+_tmp_quartz/
+quartz/static/upstream-diffs.json
+*.log
+.DS_Store
+Thumbs.db

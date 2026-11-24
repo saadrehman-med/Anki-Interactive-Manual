@@ -1,0 +1,75 @@
+id: preferences-setup
+title: Customizing Preferences
+intro: Adjust appearance, review behavior, syncing, and backup settings in Anki Preferences.
+target_doc: docs/manual/preferences.md
+insert_after: "## Appearance"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Open Tools > Preferences"
+    output: step-01-tools-preferences.webp
+    window: main
+    locate:
+      mode: menu_item
+      menu: Tools
+      item: Preferences
+      padding: 4
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      Open **Tools > Preferences** (or press <kbd>Ctrl</kbd>+<kbd>P</kbd>).
+
+  - title: "Step 02: Adjust Appearance and Theme Options"
+    output: step-02-preferences-appearance.webp
+    window: active_dialog
+    pre_actions:
+      - action: close_dialogs
+      - action: open_dialog
+        name: Preferences
+      - action: select_preferences_tab
+        tab: Appearance
+      - action: wait
+        ms: 300
+    locate:
+      mode: qt_widget
+      object_name: theme
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      On the **Appearance** tab, set your interface language, **Theme** (Light, Dark, or Follow system), UI size, and distraction-free options.
+
+  - title: "Step 03: Review Scheduler & Study Preferences"
+    output: step-03-preferences-review.webp
+    window: active_dialog
+    pre_actions:
+      - action: select_preferences_tab
+        tab: Review
+      - action: wait
+        ms: 250
+    locate:
+      mode: qt_widget
+      tab_text: Review
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "3"
+    caption: |
+      Switch to the **Review** tab to configure next-day boundaries, learn-ahead limits, and timebox timers.
+    post_actions:
+      - action: close_dialogs

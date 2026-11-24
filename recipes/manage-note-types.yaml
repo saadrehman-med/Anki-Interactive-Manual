@@ -1,0 +1,55 @@
+id: manage-note-types
+title: Managing Note Types
+intro: Open Tools > Manage Note Types to add, rename, clone, or configure fields and card templates for note types.
+target_doc: docs/manual/editing.md
+insert_after: "## Adding a Note Type"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Open Tools > Manage Note Types"
+    output: step-01-tools-note-types.webp
+    window: main
+    locate:
+      mode: menu_item
+      menu: Tools
+      item: Manage Note Types
+      padding: 4
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      From the main menu bar, choose **Tools > Manage Note Types...** (or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd>).
+
+  - title: "Step 02: Add, Rename, or Edit Note Type Fields & Cards"
+    output: step-02-note-types-dialog.webp
+    window: active_dialog
+    pre_actions:
+      - action: close_dialogs
+      - action: open_dialog
+        name: NoteTypes
+      - action: wait
+        ms: 300
+    locate:
+      mode: qt_widget
+      class_name: QPushButton
+      text: "Add"
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Click **Add** to create or clone a note type, or select an existing type and use **Rename**, **Delete**, **Fields**, **Cards**, or **Options**.
+    post_actions:
+      - action: close_dialogs

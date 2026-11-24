@@ -1,0 +1,57 @@
+id: statistics-view
+title: Viewing Collection Statistics
+intro: Inspect due counts, review history, and interval distributions in Anki's Statistics window.
+target_doc: docs/manual/stats.md
+insert_after: "## Statistics"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Click Stats in the Top Toolbar"
+    output: step-01-toolbar-stats.webp
+    window: main
+    locate:
+      mode: web
+      web: toolbar
+      selector: "#stats"
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+    caption: |
+      Click **Stats** in the main toolbar (or press <kbd>T</kbd>) to open the Statistics screen.
+
+  - title: "Step 02: Switch Between Deck and Collection Scope"
+    output: step-02-stats-scope.webp
+    window: active_dialog
+    pre_actions:
+      - action: open_dialog
+        name: Stats
+      - action: resize_window
+        window: active_dialog
+        width: 920
+        height: 740
+      - action: wait
+        ms: 400
+    locate:
+      mode: web
+      selector: label
+      text: collection
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Use the top radio controls to filter by **deck** (e.g., `Demo deck`) or the entire **collection**, and choose a time window such as **12 months** or **all history**.
+    post_actions:
+      - action: close_dialogs

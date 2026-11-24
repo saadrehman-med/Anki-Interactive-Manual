@@ -1,0 +1,121 @@
+:root:not([reader-mode="on"]) body[data-slug="index"] .article-title {
+  display: none;
+}
+
+body[data-slug="index"] .center > hr,
+body[data-slug="index"] .page-footer {
+  display: none;
+}
+
+.home-widgets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin: 0.25rem 0 1.25rem 0;
+}
+
+.docs-stats-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.55rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--lightgray);
+  font-size: 0.85rem;
+  color: var(--gray);
+
+  .stat-item {
+    color: var(--darkgray);
+  }
+
+  .stat-divider {
+    color: var(--gray);
+    opacity: 0.5;
+    user-select: none;
+  }
+}
+
+.recent-guides-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.recent-guides-header {
+  font-family: var(--codeFont), monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray);
+  margin-bottom: 0.15rem;
+}
+
+.recent-guides-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 215px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lightgray) transparent;
+}
+
+.recent-guide-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.52rem 0;
+  border-bottom: 1px solid var(--lightgray);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media all and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+}
+
+.recent-guide-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--dark) !important;
+  background: transparent !important;
+  padding: 0 !important;
+  line-height: 1.4;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--tertiary) !important;
+  }
+}
+
+.walkthrough-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.42rem;
+  border-radius: 999px;
+  border: 1px solid var(--lightgray);
+  color: var(--tertiary);
+}
+
+.recent-guide-time {
+  font-size: 0.78rem;
+  color: var(--gray);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

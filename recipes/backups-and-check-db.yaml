@@ -1,0 +1,56 @@
+id: backups-and-check-db
+title: Creating and Configuring Backups
+intro: Create a manual backup or adjust automatic backup retention settings in Preferences.
+target_doc: docs/manual/backups.md
+insert_after: "## Automatic backups"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Create a Backup from the File Menu"
+    output: step-01-file-create-backup.webp
+    window: main
+    locate:
+      mode: menu_item
+      menu: File
+      item: Create Backup
+      padding: 4
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      Open **File > Create Backup** anytime you want an immediate snapshot before making bulk changes.
+
+  - title: "Step 02: Configure Automatic Backups in Preferences"
+    output: step-02-preferences-backups.webp
+    window: active_dialog
+    pre_actions:
+      - action: close_dialogs
+      - action: open_dialog
+        name: Preferences
+      - action: select_preferences_tab
+        tab: Backups
+      - action: wait
+        ms: 300
+    locate:
+      mode: qt_widget
+      tab_text: Backups
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Under **Tools > Preferences > Backups**, adjust how often automatic backups run and how many daily/weekly/monthly backups Anki retains.
+    post_actions:
+      - action: close_dialogs

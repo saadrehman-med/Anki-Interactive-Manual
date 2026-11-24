@@ -1,0 +1,70 @@
+id: syncing-ankiweb
+title: "Syncing Across Devices: Upload vs Download"
+intro: Trigger a sync and choose the right option when a full-sync conflict dialog appears.
+target_doc: docs/guides/syncing-ankiweb.md
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Click Sync (or Press Y)"
+    output: step-01-sync-button.webp
+    window: main
+    locate:
+      mode: web
+      web: toolbar
+      text: "Sync"
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "bottom-right"
+    caption: |
+      Click **Sync** in the top toolbar (or press `Y`) to sync your collection with AnkiWeb.
+
+  - title: "Step 02: Choose Upload to AnkiWeb (Keep This Device)"
+    output: step-02-upload-to-ankiweb.webp
+    window: active_dialog
+    pre_actions:
+      - action: open_sync_conflict_dialog
+      - action: wait
+        ms: 200
+    locate:
+      mode: qt_widget
+      class_name: QPushButton
+      text: "Upload to AnkiWeb"
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+      badge_position: "top-left"
+    caption: |
+      Click **Upload to AnkiWeb** when **this device** has your latest cards and review history. This overwrites AnkiWeb with your local collection.
+
+  - title: "Step 03: Choose Download from AnkiWeb (Keep Server Copy)"
+    output: step-03-download-from-ankiweb.webp
+    window: active_dialog
+    locate:
+      mode: qt_widget
+      class_name: QPushButton
+      text: "Download from AnkiWeb"
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "3"
+      badge_position: "top-left"
+    caption: |
+      Click **Download from AnkiWeb** when **another device / AnkiWeb** has your latest changes. This replaces your local decks with AnkiWeb's copy.
+    post_actions:
+      - action: close_dialogs
+      - action: reset_to_decks

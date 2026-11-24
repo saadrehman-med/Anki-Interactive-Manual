@@ -1,0 +1,97 @@
+id: studying-workflow
+title: Studying a Deck
+intro: Step through selecting a deck, starting a review session, revealing the answer, and rating your recall.
+target_doc: docs/manual/studying.md
+insert_after: "## Decks"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Select a Deck on the Decks Screen"
+    output: step-01-decks-screen.webp
+    window: main
+    locate:
+      mode: web
+      web: deckBrowser
+      selector: a.deck
+      text: Demo deck
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      Click **Demo deck** on the Decks screen to open its study overview.
+
+  - title: "Step 02: Click Study Now on the Deck Overview"
+    output: step-02-study-now.webp
+    window: main
+    pre_actions:
+      - action: open_deck_overview
+        deck: "Demo deck"
+      - action: wait
+        ms: 350
+    locate:
+      mode: web
+      web: overview
+      selector: button
+      text: Study Now
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Review the daily due counts and click **Study Now** to begin studying.
+
+  - title: "Step 03: View the Question and Click Show Answer"
+    output: step-03-show-answer.webp
+    window: main
+    pre_actions:
+      - action: start_study_session
+        deck: "Demo deck"
+      - action: wait
+        ms: 450
+    locate:
+      mode: web
+      web: bottom
+      selector: button
+      text: Show Answer
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "3"
+    caption: |
+      Recall the answer silently, then click **Show Answer** (or press <kbd>Space</kbd>).
+
+  - title: "Step 04: Choose an Answer Button"
+    output: step-04-answer-buttons.webp
+    window: main
+    pre_actions:
+      - action: show_answer
+      - action: wait
+        ms: 350
+    locate:
+      mode: web
+      web: bottom
+      selector: button
+      text: Good
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "4"
+    caption: |
+      Rate how well you remembered the card using **Again** (<kbd>1</kbd>), **Hard** (<kbd>2</kbd>), **Good** (<kbd>3</kbd>), or **Easy** (<kbd>4</kbd>).
+    post_actions:
+      - action: reset_to_decks

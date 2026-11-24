@@ -1,0 +1,34 @@
+id: profiles-management
+title: Managing User Profiles
+intro: Open the Profiles window to create, rename, or switch between separate Anki collections.
+target_doc: docs/manual/profiles.md
+insert_after: "## Profiles window"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Choose File > Switch Profile"
+    output: step-01-file-switch-profile.webp
+    window: main
+    locate:
+      mode: menu_item
+      menu: File
+      item: Switch Profile
+      padding: 4
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      From the main window, choose **File > Switch Profile** (or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) to open the Profiles manager.
+    post_actions:
+      - action: close_dialogs

@@ -1,0 +1,23 @@
+name: Tutorial Request
+description: Request a new Mimik interactive walkthrough or screenshot guide for a manual section.
+title: "[Tutorial Request]: "
+labels: ["tutorial-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Anki Interactive Manual!
+  - type: input
+    id: topic
+    attributes:
+      label: Manual Section or Workflow
+      description: Which Anki menu, dialog, or manual section should have a step-by-step walkthrough?
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Specific Steps or Details (Optional)
+      description: Any specific beginner pain points or UI options to highlight?
+    validations:
+      required: false

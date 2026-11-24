@@ -1,0 +1,71 @@
+id: filtered-decks
+title: Creating a Filtered Deck
+intro: Build a temporary deck for targeted review or cramming without moving cards permanently from Demo deck.
+target_doc: docs/manual/filtered-decks.md
+insert_after: "## Creating Manually"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Choose Tools > Create Filtered Deck"
+    output: step-01-tools-filtered.webp
+    window: main
+    locate:
+      mode: menu_item
+      menu: Tools
+      item: Create Filtered Deck
+      padding: 4
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      From the top menu bar, open **Tools > Create Filtered Deck...** (or press <kbd>F</kbd>).
+
+  - title: "Step 02: Enter the Search Filter and Limit"
+    output: step-02-filtered-search.webp
+    window: active_dialog
+    pre_actions:
+      - action: close_dialogs
+      - action: open_dialog
+        name: FilteredDeck
+      - action: set_filtered_deck_fields
+        name: "Filtered Deck"
+        search: 'deck:"Demo deck" is:new'
+      - action: wait
+        ms: 250
+    locate:
+      mode: qt_widget
+      object_name: search
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Specify which cards to gather (for example, `deck:"Demo deck" is:new`) and set the card **Limit** and selection **Order**.
+
+  - title: "Step 03: Configure Rescheduling and Click Build"
+    output: step-03-filtered-build.webp
+    window: active_dialog
+    locate:
+      mode: qt_widget
+      object_name: resched
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "3"
+    caption: |
+      Keep **Reschedule cards based on my answers in this deck** checked for normal FSRS/SM-2 updates, or uncheck it for cramming, then click **Build**.
+    post_actions:
+      - action: close_dialogs

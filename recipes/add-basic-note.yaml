@@ -1,0 +1,75 @@
+id: add-basic-note
+title: Adding a Basic Card
+intro: Create a new note in Anki by selecting a note type, choosing a target deck, and filling in fields.
+target_doc: docs/manual/editing.md
+insert_after: "## Adding Cards and Notes"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Click Add in the Top Toolbar"
+    output: step-01-toolbar-add.webp
+    window: main
+    locate:
+      mode: web
+      web: toolbar
+      selector: "#add"
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+    caption: |
+      Click **Add** in the top navigation bar (or press <kbd>A</kbd>) to open the Add window.
+
+  - title: "Step 02: Choose the Target Deck"
+    output: step-02-select-deck.webp
+    window: active_dialog
+    pre_actions:
+      - action: setup_add_cards
+        model: "Basic"
+        deck: "Demo deck"
+        fields:
+          Front: "What is the speed of light in vacuum?"
+          Back: "Approximately 299,792 km/s."
+      - action: resize_window
+        window: active_dialog
+        width: 820
+        height: 620
+      - action: wait
+        ms: 300
+    locate:
+      mode: qt_widget
+      text: "Demo deck"
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Verify the **Type** (`Basic`) and **Deck** (**Demo deck**) buttons at the top of the Add window.
+
+  - title: "Step 03: Fill in Fields and Click Add"
+    output: step-03-click-add.webp
+    window: active_dialog
+    locate:
+      mode: qt_widget
+      class_name: QPushButton
+      text: "Add"
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "3"
+    caption: |
+      Enter content in the **Front** and **Back** fields, then click **Add** (or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>).
+    post_actions:
+      - action: close_dialogs

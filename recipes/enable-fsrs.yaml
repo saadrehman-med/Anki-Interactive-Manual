@@ -1,0 +1,119 @@
+id: enable-fsrs
+title: Enable FSRS in Deck Options
+intro: Follow these steps to switch from the legacy SM-2 scheduler to Anki's FSRS (Free Spaced Repetition Scheduler).
+target_doc: docs/manual/deck-options.md
+insert_after: "## FSRS"
+
+setup:
+  - action: close_dialogs
+  - action: set_col_config
+    key: fsrs
+    value: false
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Select a Deck on the Decks Screen"
+    output: step-01-select-deck.webp
+    window: main
+    locate:
+      mode: web
+      web: deckBrowser
+      selector: a.deck
+      text: Demo deck
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      On the main **Decks** screen, click **Demo deck** to open its Deck Overview.
+
+  - title: "Step 02: Click Options on the Deck Overview"
+    output: step-02-deck-overview-options.webp
+    window: main
+    pre_actions:
+      - action: open_deck_overview
+        deck: "Demo deck"
+      - action: wait
+        ms: 350
+    locate:
+      mode: web
+      web: bottom
+      selector: button
+      text: Options
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      In the **Deck Overview**, click **Options** at the bottom of the window (or press <kbd>O</kbd>).
+
+  - title: "Step 03: Toggle FSRS On in Deck Options"
+    output: step-03-toggle-fsrs.webp
+    window: active_dialog
+    pre_actions:
+      - action: open_deck_options
+        deck: "Demo deck"
+      - action: resize_window
+        window: active_dialog
+        width: 880
+        height: 720
+      - action: wait
+        ms: 300
+    locate:
+      mode: web
+      js: |
+        (() => {
+          const h1 = Array.from(document.querySelectorAll('h1')).find(e => e.innerText.trim() === 'FSRS');
+          const container = h1 ? h1.closest('.container') : null;
+          if (!container) return null;
+          return container.querySelector('.form-switch') || container.querySelector('input[type="checkbox"]');
+        })()
+      padding: 10
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "3"
+    caption: |
+      Scroll down to the **FSRS** section and toggle **FSRS** on.
+
+  - title: "Step 04: Review FSRS Options and Click Save"
+    output: step-04-save-fsrs.webp
+    window: active_dialog
+    pre_actions:
+      - action: web_eval
+        window: active_dialog
+        js: |
+          (() => {
+            const h1 = Array.from(document.querySelectorAll('h1')).find(e => e.innerText.trim() === 'FSRS');
+            const container = h1 ? h1.closest('.container') : null;
+            const cb = container ? container.querySelector('input[type="checkbox"]') : null;
+            if (cb && !cb.checked) cb.click();
+          })()
+      - action: wait
+        ms: 350
+    locate:
+      mode: web
+      selector: button.primary
+      text: Save
+      padding: 8
+      scroll: false
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "4"
+    caption: |
+      Adjust **Desired retention** and **FSRS parameters** if needed, then click **Save** (or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>).
+    post_actions:
+      - action: close_dialogs
+      - action: set_col_config
+        key: fsrs
+        value: false

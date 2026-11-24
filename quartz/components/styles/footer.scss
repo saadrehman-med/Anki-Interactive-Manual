@@ -1,0 +1,47 @@
+@use "../../styles/variables.scss" as *;
+
+footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  opacity: 0.85;
+
+  & ul {
+    list-style: none;
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  & .footer-credit {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--gray);
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+
+    .footer-heart {
+      color: #d65a5a;
+      display: inline-block;
+      margin: 0 0.1rem;
+      font-size: 0.92em;
+    }
+  }
+
+  @media all and ($tablet) {
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  @media all and ($mobile) {
+    margin-top: 1.25rem;
+    margin-bottom: 1.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+}

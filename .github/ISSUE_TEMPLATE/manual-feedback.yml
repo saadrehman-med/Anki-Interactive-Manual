@@ -1,0 +1,28 @@
+name: Manual Feedback
+description: Suggest an edit, fix a broken link/walkthrough, or flag an upstream manual update.
+title: "[Feedback]: "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Anki Interactive Manual!
+  - type: input
+    id: page
+    attributes:
+      label: Manual Page Reference
+      description: The page or walkthrough step this feedback applies to.
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Feedback
+      placeholder: |
+        What needs fixing or updating? (Broken walkthrough step, screenshot mismatch, upstream manual change, or typo)
+
+        What should it show instead?
+
+        Official Anki Manual reference (optional):
+    validations:
+      required: true

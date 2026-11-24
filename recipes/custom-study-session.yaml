@@ -1,0 +1,39 @@
+id: custom-study-session
+title: Starting a Custom Study Session
+intro: Launch a temporary study session directly from any deck's overview screen.
+target_doc: docs/manual/filtered-decks.md
+insert_after: "## Custom Study"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Click Custom Study on the Deck Overview"
+    output: step-01-custom-study-btn.webp
+    window: main
+    pre_actions:
+      - action: open_deck_overview
+        deck: "Demo deck"
+      - action: wait
+        ms: 350
+    locate:
+      mode: web
+      web: bottom
+      selector: button
+      text: Custom Study
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+    caption: |
+      Select **Demo deck** and click **Custom Study** at the bottom of the Deck Overview screen to quickly increase today's limits, review forgotten cards, or cram by tag.
+    post_actions:
+      - action: reset_to_decks

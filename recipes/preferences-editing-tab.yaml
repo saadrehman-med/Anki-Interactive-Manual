@@ -1,0 +1,33 @@
+id: preferences-editing-tab
+title: Configuring Editing Preferences
+intro: Set default add/change deck behavior, paste formatting rules, and voice recording options.
+target_doc: docs/manual/preferences.md
+insert_after: "## Editing"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+
+steps:
+  - title: "Step 01: Open the Editing Tab in Preferences"
+    output: step-01-preferences-editing.webp
+    window: active_dialog
+    pre_actions:
+      - action: open_dialog
+        name: Preferences
+      - action: select_preferences_tab
+        tab: Editing
+      - action: wait
+        ms: 300
+    locate:
+      mode: qt_widget
+      tab_text: Editing
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+    caption: |
+      Open **Tools > Preferences > Editing** to configure **Default deck**, **Paste without shift key strips formatting**, and audio recording settings.
+    post_actions:
+      - action: close_dialogs

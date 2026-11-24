@@ -1,0 +1,56 @@
+id: studying-more-and-edit
+title: Edit & More Actions During Review
+intro: Edit the current card or access Flag, Bury, Suspend, Card Info, and Set Due Date from the review screen.
+target_doc: docs/manual/studying.md
+insert_after: "## Editing and More"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Click Edit During Study"
+    output: step-01-study-edit.webp
+    window: main
+    pre_actions:
+      - action: start_study_session
+        deck: "Demo deck"
+      - action: show_answer
+      - action: wait
+        ms: 350
+    locate:
+      mode: web
+      web: bottom
+      selector: button
+      text: Edit
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+    caption: |
+      Click **Edit** in the bottom-left corner (or press <kbd>E</kbd>) to modify the current note without leaving your review session.
+
+  - title: "Step 02: Open the More Menu for Card Actions"
+    output: step-02-study-more.webp
+    window: main
+    locate:
+      mode: web
+      web: bottom
+      selector: button
+      text: More
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Click **More ▼** in the bottom-right corner to **Flag**, **Bury**, **Suspend**, **Delete**, view **Card Info**, **Set Due Date**, or open **Options**.
+    post_actions:
+      - action: reset_to_decks

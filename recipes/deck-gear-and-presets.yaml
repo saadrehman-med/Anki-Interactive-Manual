@@ -1,0 +1,58 @@
+id: deck-gear-and-presets
+title: Opening Deck Options & Managing Presets
+intro: Access Deck Options from the gear icon on the Decks screen and manage shared presets using the preset menu.
+target_doc: docs/manual/deck-options.md
+insert_after: "## Presets"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Click the Gear Icon Next to a Deck"
+    output: step-01-deck-gear.webp
+    window: main
+    locate:
+      mode: web
+      web: deckBrowser
+      selector: 'a[onclick*="opts:"]'
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      On the **Decks** screen, click the gear icon to the right of **Demo deck** and choose **Options**.
+
+  - title: "Step 02: Open the Preset Actions Menu"
+    output: step-02-preset-menu.webp
+    window: active_dialog
+    pre_actions:
+      - action: open_deck_options
+        deck: "Demo deck"
+      - action: resize_window
+        window: active_dialog
+        width: 880
+        height: 720
+      - action: wait
+        ms: 300
+    locate:
+      mode: web
+      selector: button.chevron
+      padding: 6
+      scroll: false
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Click the arrow button next to **Save** in the top-right corner to **Add Preset**, **Clone**, **Rename**, **Delete**, or **Save to All Subdecks**.
+    post_actions:
+      - action: close_dialogs

@@ -1,0 +1,64 @@
+id: getting-started-tour
+title: Quick Tour of Anki's Main Screen
+intro: Get oriented with Anki's navigation bar, deck list, and shared deck browser.
+target_doc: docs/manual/getting-started.md
+insert_after: "## Key Concepts"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: View Your Decks on the Home Screen"
+    output: step-01-main-decks.webp
+    window: main
+    locate:
+      mode: web
+      web: deckBrowser
+      selector: a.deck
+      text: Demo deck
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "right"
+    caption: |
+      Your decks appear in the center of the main screen with **New**, **Learn**, and **Due** counts to the right. Click **Demo deck** to start studying.
+
+  - title: "Step 02: Use the Top Navigation Toolbar"
+    output: step-02-top-toolbar.webp
+    window: main
+    locate:
+      mode: web
+      web: toolbar
+      selector: "#add"
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Use the top bar to switch to **Decks** (<kbd>D</kbd>), **Add** cards (<kbd>A</kbd>), **Browse** your collection (<kbd>B</kbd>), view **Stats** (<kbd>T</kbd>), or **Sync** (<kbd>Y</kbd>).
+
+  - title: "Step 03: Create a Deck or Browse Shared Decks"
+    output: step-03-bottom-actions.webp
+    window: main
+    locate:
+      mode: web
+      web: bottom
+      selector: button
+      text: Create Deck
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "3"
+    caption: |
+      Use **Get Shared** to download community decks from AnkiWeb, **Create Deck** to organize your own cards, or **Import File** to load `.apkg` / CSV files.

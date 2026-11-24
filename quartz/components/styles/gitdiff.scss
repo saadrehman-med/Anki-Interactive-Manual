@@ -1,0 +1,200 @@
+.gitdiff {
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  background: none;
+  border: none;
+  width: 22px;
+  height: 32px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--darkgray);
+  flex-shrink: 0;
+  transition:
+    color 0.18s ease,
+    transform 0.15s ease;
+
+  & svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  &:hover {
+    color: var(--dark);
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
+
+  &[data-active="true"] {
+    color: var(--secondary);
+  }
+}
+
+:root[git-diff="on"] .center > article {
+  display: none;
+}
+
+.git-diff-view {
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+  background-color: var(--light);
+  font-family: var(--codeFont);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  overflow: hidden;
+  margin: 0.75rem 0 2rem;
+
+  .gd-empty {
+    padding: 0.85rem 1rem;
+    color: var(--darkgray);
+  }
+
+  .gd-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 0.9rem;
+    padding: 0.65rem 0.95rem;
+    border-bottom: 1px solid var(--lightgray);
+    background-color: var(--highlight);
+  }
+
+  .gd-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+
+  .gd-link {
+    color: var(--secondary);
+    text-decoration: none;
+    word-break: break-all;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .gd-date {
+    color: var(--gray);
+  }
+
+  .gd-stats {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .gd-stat-add {
+    color: #1a7f37;
+  }
+
+  .gd-stat-del {
+    color: #cf222e;
+  }
+
+  .gd-hunk {
+    border-top: 1px solid var(--lightgray);
+
+    &:first-of-type {
+      border-top: none;
+    }
+  }
+
+  .gd-hunk-header {
+    padding: 0.35rem 0.95rem;
+    color: var(--gray);
+    background-color: var(--highlight);
+    border-bottom: 1px solid var(--lightgray);
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  .gd-lines {
+    padding: 0.25rem 0;
+  }
+
+  .gd-line {
+    padding: 0.1rem 0.95rem;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .gd-line-ctx {
+    color: var(--darkgray);
+  }
+
+  .gd-line-add {
+    background-color: rgba(46, 160, 67, 0.12);
+    color: var(--dark);
+  }
+
+  .gd-line-del {
+    background-color: rgba(248, 81, 73, 0.12);
+    color: var(--dark);
+  }
+
+  .gd-tutorials {
+    border-top: 1px solid var(--lightgray);
+  }
+
+  .gd-tutorial {
+    border-bottom: 1px solid var(--lightgray);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .gd-tutorial-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding: 0.5rem 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    color: var(--darkgray);
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:hover {
+      background-color: var(--highlight);
+    }
+  }
+
+  .gd-tutorial-id {
+    background: none;
+    padding: 0;
+    color: var(--darkgray);
+  }
+}
+
+:root[saved-theme="dark"] .git-diff-view {
+  .gd-stat-add {
+    color: #3fb950;
+  }
+
+  .gd-stat-del {
+    color: #f85149;
+  }
+
+  .gd-line-add {
+    background-color: rgba(46, 160, 67, 0.18);
+  }
+
+  .gd-line-del {
+    background-color: rgba(248, 81, 73, 0.18);
+  }
+}

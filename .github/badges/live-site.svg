@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="356" height="38" role="img" aria-label="LIVE SITE: ANKI INTERACTIVE MANUAL">
+  <title>LIVE SITE: ANKI INTERACTIVE MANUAL</title>
+  <defs>
+    <clipPath id="clip-live">
+      <rect width="356" height="38" rx="6" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-live)">
+    <rect width="128" height="38" fill="#495057" />
+    <rect x="128" width="228" height="38" fill="#284b63" />
+  </g>
+  <g transform="translate(13, 8) scale(0.9)" fill="#ffffff">
+    <path d="M12 2.25 14.95 8.23l6.6.96-4.78 4.66 1.13 6.57L12 17.32l-5.9 3.1 1.13-6.57L2.45 9.19l6.6-.96L12 2.25Z" />
+  </g>
+  <g fill="#ffffff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="12">
+    <text x="80" y="23" letter-spacing="1.1">LIVE SITE</text>
+    <text x="242" y="23" font-weight="bold" letter-spacing="0.9">ANKI INTERACTIVE MANUAL</text>
+  </g>
+</svg>

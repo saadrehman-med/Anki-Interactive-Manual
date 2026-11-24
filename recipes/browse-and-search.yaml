@@ -1,0 +1,71 @@
+id: browse-and-search
+title: Searching in the Card Browser
+intro: Open the Browser, filter cards by deck or state, and inspect matching results.
+target_doc: docs/manual/searching.md
+insert_after: "## Simple searches"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
+
+steps:
+  - title: "Step 01: Open Browse from the Top Toolbar"
+    output: step-01-toolbar-browse.webp
+    window: main
+    locate:
+      mode: web
+      web: toolbar
+      selector: "#browse"
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+    caption: |
+      Click **Browse** in the main toolbar (or press <kbd>B</kbd>) to open the Card Browser.
+
+  - title: "Step 02: Enter a Search Query in the Search Box"
+    output: step-02-search-box.webp
+    window: active_dialog
+    pre_actions:
+      - action: setup_browser
+        search: 'deck:"Demo deck"'
+        select_first: true
+      - action: resize_window
+        window: active_dialog
+        width: 1080
+        height: 700
+      - action: wait
+        ms: 350
+    locate:
+      mode: qt_widget
+      object_name: searchEdit
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Type a search query such as `deck:"Demo deck"` in the search bar and press <kbd>Enter</kbd> to filter matching cards.
+
+  - title: "Step 03: Select a Result to Inspect Its Fields"
+    output: step-03-table-result.webp
+    window: active_dialog
+    locate:
+      mode: qt_widget
+      object_name: tableView
+      padding: 4
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "3"
+    caption: |
+      Click any row in the table to view and edit the note's fields in the right-hand editing pane.
+    post_actions:
+      - action: close_dialogs

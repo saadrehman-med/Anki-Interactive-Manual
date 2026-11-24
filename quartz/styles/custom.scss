@@ -1,0 +1,277 @@
+@use "./base.scss";
+
+// Rounded corners and subtle border for content & preview popover images
+article img,
+.popover img {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--lightgray);
+}
+
+// Center PageTitle and icon toolbar in left sidebar on desktop
+@media all and (min-width: 801px) {
+  .sidebar.left .page-title {
+    text-align: center;
+    width: 100%;
+  }
+
+  .sidebar.left .page-title-link {
+    justify-content: center;
+  }
+
+  .sidebar.left .flex-component {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9rem !important;
+    margin: 0.25rem 0 0.5rem;
+  }
+}
+
+.left .flex-component {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.9rem !important;
+  margin: 0.25rem 0 0.5rem;
+}
+
+@media all and (max-width: 800px) {
+  .page > #quartz-body {
+    overflow-x: clip;
+
+    & > .center,
+    & > footer,
+    & > .sidebar.right {
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
+
+  .sidebar.left {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+    column-gap: 0.45rem !important;
+    row-gap: 0.4rem !important;
+    padding-top: 0.9rem !important;
+    padding-bottom: 0.75rem !important;
+
+    & > .mobile-only {
+      display: none;
+    }
+
+    & .page-title {
+      font-size: 0.95rem;
+      line-height: 1.15;
+      min-width: 0;
+      flex: 1 1 0%;
+    }
+
+    & .page-title-link {
+      gap: 0.35rem;
+    }
+
+    & .page-title-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    & .flex-component {
+      gap: 0.45rem !important;
+      margin: 0 !important;
+      flex-shrink: 0;
+    }
+
+    & .floating-buttons {
+      gap: 0.45rem;
+    }
+  }
+}
+
+// Compact monochrome icon button for Search
+.left .search {
+  min-width: fit-content;
+  max-width: fit-content;
+
+  & > .search-button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    height: 32px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > p {
+      display: none;
+    }
+
+    & svg {
+      margin: 0;
+      width: 18px;
+      min-width: 18px;
+      height: 18px;
+
+      .search-path {
+        stroke: var(--darkgray);
+        stroke-width: 1.7px;
+      }
+    }
+
+    &:hover svg .search-path {
+      stroke: var(--dark);
+    }
+  }
+}
+
+// Smooth scroll and thin rounded scrollbars across the site
+html {
+  background-color: var(--light);
+  overscroll-behavior-y: none;
+  scroll-padding-top: 2rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lightgray) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--lightgray);
+  border-radius: 999px;
+
+  &:hover {
+    background-color: var(--gray);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+// Soft pill-style internal links
+article a.internal {
+  background-color: var(--highlight);
+  padding: 0.08rem 0.34rem;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Rounded, minimal callouts in true black dark mode & crisp light mode
+blockquote.callout {
+  background-color: transparent;
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+
+  &[data-callout="note"] {
+    --color: var(--secondary);
+    --border: color-mix(in srgb, var(--secondary) 28%, transparent);
+    --bg: color-mix(in srgb, var(--secondary) 7%, transparent);
+  }
+}
+
+// Clean Graph View border
+.graph > .graph-outer {
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  background: transparent;
+}
+
+// Classic literary dinkus (* * *) at the end of articles (hidden on landing & list pages)
+.center > hr {
+  border: none;
+  background: transparent;
+  height: auto;
+  margin: 2.5rem 0 1.5rem 0;
+  text-align: center;
+  overflow: visible;
+
+  &::after {
+    content: "*  *  *";
+    color: var(--dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.45em;
+    padding-left: 0.45em;
+    opacity: 0.85;
+  }
+}
+
+body[data-slug="index"] .center > hr,
+body[data-slug="404"] .center > hr,
+.center:has(.page-listing) > hr {
+  display: none;
+}
+
+// Ensure Mermaid diagrams preserve high-contrast text & clean minimal boxes in both modes
+pre > code.mermaid {
+  svg {
+    max-width: 100%;
+    height: auto;
+
+    a {
+      text-decoration: none;
+    }
+
+    text,
+    tspan,
+    .nodeLabel,
+    .edgeLabel,
+    .cluster-label text,
+    .label {
+      fill: var(--dark) !important;
+      color: var(--dark) !important;
+    }
+
+    .edgeLabel rect,
+    .labelBkg {
+      fill: var(--light) !important;
+      background-color: var(--light) !important;
+      opacity: 0.94;
+    }
+
+    .node rect,
+    .node circle,
+    .node polygon,
+    .node path {
+      fill: var(--light) !important;
+      stroke: var(--gray) !important;
+      stroke-width: 1px;
+    }
+
+    .flowchart-link,
+    .edgePath path {
+      stroke: var(--darkgray) !important;
+    }
+  }
+}
+
+// Crisp <kbd> keys in both Light and Dark modes
+kbd {
+  display: inline-block;
+  padding: 0.12rem 0.42rem;
+  font-size: 0.84em;
+  font-family: var(--codeFont);
+  line-height: 1.3;
+  color: var(--dark);
+  background-color: var(--highlight);
+  border: 1px solid var(--lightgray);
+  border-radius: 5px;
+  box-shadow: inset 0 -1px 0 var(--lightgray);
+}

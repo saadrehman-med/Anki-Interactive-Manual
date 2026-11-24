@@ -1,0 +1,64 @@
+id: media-check-and-attach
+title: Attaching and Checking Media
+intro: Attach images or audio in the card editor and clean up unused media files with Check Media.
+target_doc: docs/manual/media.md
+insert_after: "## Checking Media"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+
+steps:
+  - title: "Step 01: Attach Images, Audio, or Video in the Editor"
+    output: step-01-editor-attach.webp
+    window: active_dialog
+    pre_actions:
+      - action: setup_add_cards
+        model: "Basic"
+        deck: "Demo deck"
+        fields:
+          Front: "Example card with media"
+          Back: "Use the paperclip icon or paste directly."
+      - action: resize_window
+        window: active_dialog
+        width: 820
+        height: 620
+      - action: wait
+        ms: 300
+    locate:
+      mode: web
+      selector: 'button[title*="Attach pictures/audio/video"]'
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+    caption: |
+      In the Add or Browse editor, click the paperclip icon (<kbd>F3</kbd>) or paste/drag files directly into any field to copy media into your collection.
+
+  - title: "Step 02: Run Tools > Check Media"
+    output: step-02-tools-check-media.webp
+    window: main
+    pre_actions:
+      - action: close_dialogs
+      - action: reset_to_decks
+      - action: resize_window
+        window: main
+        width: 1024
+        height: 700
+      - action: wait
+        ms: 250
+    locate:
+      mode: menu_item
+      menu: Tools
+      item: Check Media
+      padding: 4
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+      badge_position: "right"
+    caption: |
+      Open **Tools > Check Media** to scan for missing files referenced by cards and delete unused media files taking up space.
+    post_actions:
+      - action: close_dialogs

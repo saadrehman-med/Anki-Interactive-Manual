@@ -1,0 +1,50 @@
+id: import-text-csv
+title: Importing a CSV / Text File
+intro: Preview column separators and map spreadsheet columns to fields in Demo deck.
+target_doc: docs/manual/importing/text-files.md
+insert_after: "## Spreadsheets and UTF-8"
+
+setup:
+  - action: close_dialogs
+  - action: reset_to_decks
+
+steps:
+  - title: "Step 01: Verify the Field Separator and Preview Table"
+    output: step-01-csv-separator.webp
+    window: active_dialog
+    pre_actions:
+      - action: open_dialog
+        name: Import
+        file_path: "sample-import.csv"
+      - action: resize_window
+        window: active_dialog
+        width: 880
+        height: 720
+      - action: wait
+        ms: 350
+    locate:
+      mode: web
+      text: Field separator
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+    caption: |
+      After opening a `.csv` or `.tsv` file via **File > Import...**, check **Field separator** and confirm the preview table separates columns cleanly.
+
+  - title: "Step 02: Select Note Type, Deck, and Click Import"
+    output: step-02-csv-mapping.webp
+    window: active_dialog
+    locate:
+      mode: web
+      text: Import options
+      padding: 8
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+    caption: |
+      Under **Import options**, choose the target **Note Type**, **Deck** (`Demo deck`), and field mappings, then click **Import** at the top right.
+    post_actions:
+      - action: close_dialogs
