@@ -288,6 +288,38 @@ but not its siblings, you should consider using flags instead.
 
 ### Using Flags
 
+<!-- tutorial:using-flags:start -->
+
+> [!mimik] Using Colored Flags on Cards
+> Flag individual cards during review or in the Card Browser and filter by flag color.
+>
+> ---
+>
+> ## Step 01: Flag a Card During Review (Ctrl+1–7)
+>
+> ![Step 01: Flag a Card During Review (Ctrl+1–7)](../assets/tutorials/using-flags/step-01-study-more-flag.webp)
+>
+> While reviewing, press <kbd>Ctrl</kbd>+<kbd>1–7</kbd> (or click **More ▼ > Flag**) to attach a colored flag icon to the upper-right area of the current card.
+>
+> ---
+>
+> ## Step 02: Filter by Flag Color in the Browser Sidebar
+>
+> ![Step 02: Filter by Flag Color in the Browser Sidebar](../assets/tutorials/using-flags/step-02-browser-flags-sidebar.webp)
+>
+> In the **Browse** (<kbd>B</kbd>) sidebar under **Flags**, click any flag color (**Red**, **Orange**, **Green**, **Blue**, **Pink**, **Turquoise**, **Purple**) or **No Flag** to filter matching cards—or right-click a flag to rename it.
+>
+> ---
+>
+> ## Step 03: Flag Cards via Cards > Flag
+>
+> ![Step 03: Flag Cards via Cards > Flag](../assets/tutorials/using-flags/step-03-cards-flag-menu.webp)
+>
+> Select one or more cards in the Browser table and choose **Cards > Flag** (or press <kbd>Ctrl</kbd>+<kbd>1–7</kbd>) to set or clear their flag color.
+
+<!-- tutorial:using-flags:end -->
+
+
 Flags are similar to tags, but they will appear during study in the review
 window, showing a colored flag icon on the upper right area of the screen.
 You can also search for flagged cards in the Browse screen, rename flags
