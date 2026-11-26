@@ -1,15 +1,16 @@
 const STORAGE_KEY = "anki-interactive-welcome-seen"
 
-function setupWelcomeModal() {
+document.documentElement.setAttribute(
+  "data-welcome-open",
+  sessionStorage.getItem(STORAGE_KEY) ? "false" : "true",
+)
+
+document.addEventListener("nav", () => {
   const modal = document.getElementById("welcome-modal")
   if (!modal) return
 
-  if (!sessionStorage.getItem(STORAGE_KEY)) {
-    modal.removeAttribute("hidden")
-  }
-
   const close = () => {
-    modal.setAttribute("hidden", "")
+    document.documentElement.setAttribute("data-welcome-open", "false")
     sessionStorage.setItem(STORAGE_KEY, "1")
   }
 
@@ -20,7 +21,12 @@ function setupWelcomeModal() {
     if (e.target === modal) close()
   }
   const onKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && !modal.hasAttribute("hidden")) close()
+    if (
+      e.key === "Escape" &&
+      document.documentElement.getAttribute("data-welcome-open") === "true"
+    ) {
+      close()
+    }
   }
 
   closeBtn?.addEventListener("click", close)
@@ -34,7 +40,4 @@ function setupWelcomeModal() {
     modal.removeEventListener("click", onBackdropClick)
     document.removeEventListener("keydown", onKeyDown)
   })
-}
-
-document.addEventListener("nav", setupWelcomeModal)
-setupWelcomeModal()
+})

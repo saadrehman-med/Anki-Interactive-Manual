@@ -12,7 +12,6 @@ export default (() => {
         role="dialog"
         aria-modal="true"
         aria-label="Welcome notice"
-        hidden
       >
         <div class="welcome-modal-card">
           <button
@@ -47,7 +46,7 @@ export default (() => {
   }
 
   WelcomeModal.css = style
-  WelcomeModal.afterDOMLoaded = script
+  WelcomeModal.beforeDOMLoaded = script
 
   return WelcomeModal
 }) satisfies QuartzComponentConstructor

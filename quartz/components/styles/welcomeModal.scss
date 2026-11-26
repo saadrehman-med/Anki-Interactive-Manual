@@ -8,10 +8,10 @@
   padding: 1rem;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(4px);
+}
 
-  &[hidden] {
-    display: none;
-  }
+:root:not([data-welcome-open="true"]) .welcome-modal-backdrop {
+  display: none;
 }
 
 .welcome-modal-card {
