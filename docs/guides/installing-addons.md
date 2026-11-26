@@ -13,11 +13,15 @@ flowchart LR
   Paste --> Restart["Restart Anki"]
 ```
 
-## 1. Find an Add-on on AnkiWeb
+## 1. Find an Add-on & Copy Its Code on AnkiWeb
 
-Visit [ankiweb.net/shared/addons](https://ankiweb.net/shared/addons), search for the add-on you want, open its page, and copy the numeric **Download** code near the bottom.
+Visit [ankiweb.net/shared/addons](https://ankiweb.net/shared/addons) to browse by **Title**, **Modified**, or **Anki** version, or search in the top-right bar.
 
-![AnkiWeb Shared Add-ons directory](../assets/tutorials/installing-addons/ankiweb-addons.png)
+![AnkiWeb Shared Add-ons directory](../assets/tutorials/ankiweb-addons/step-01-ankiweb-browse.png)
+
+Open the add-on's page, scroll to **Download**, check **Supported Anki versions**, and copy the numeric code box (you can also use **All Add-Ons** or **Contact Author** below it).
+
+![AnkiWeb Add-on Download Code section](../assets/tutorials/ankiweb-addons/step-02-ankiweb-code.png)
 
 ## 2. Install in Anki
 

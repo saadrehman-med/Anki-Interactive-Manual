@@ -9,6 +9,29 @@ scheduling, and so on.
 To browse the list of available add-ons, select **Tools &gt; Add-ons**, then click on **Get Add-ons**.
 Alternatively, open [ankiweb.net/shared/addons](https://ankiweb.net/shared/addons) in a web browser.
 
+<!-- tutorial:ankiweb-addons:start -->
+
+> [!mimik] Finding Add-on Codes on AnkiWeb
+> Browse the AnkiWeb Shared Add-ons directory, check supported Anki versions, and copy the numeric download code.
+>
+> ---
+>
+> ## Step 01: Browse or Search AnkiWeb Add-ons
+>
+> ![Step 01: Browse or Search AnkiWeb Add-ons](../assets/tutorials/ankiweb-addons/step-01-ankiweb-browse.png)
+>
+> Visit [ankiweb.net/shared/addons](https://ankiweb.net/shared/addons) to browse add-ons sorted by name, **Modified** date, or **Anki** version, or use the top-right **Search** bar to find one.
+>
+> ---
+>
+> ## Step 02: Copy the Add-on Code from the Download Section
+>
+> ![Step 02: Copy the Add-on Code from the Download Section](../assets/tutorials/ankiweb-addons/step-02-ankiweb-code.png)
+>
+> On the add-on's page, scroll to **Download**, verify **Supported Anki versions**, and copy the numeric code box (or click **Contact Author** / **All Add-Ons**).
+
+<!-- tutorial:ankiweb-addons:end -->
+
 If you have downloaded an add-on that is not working properly, or if you
 accidentally made a mistake when editing an add-on, you can use the
 **Delete** option in the menu to remove it.
