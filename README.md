@@ -50,7 +50,10 @@ Hello! I'm a big fan of Anki and built this fan project to learn how to use GitH
 - [diff2html](https://diff2html.xyz/): Generates visual comparisons between adapted pages and the latest upstream manual commit.
 - [Giscus](https://giscus.app/): Comments system powered by GitHub Discussions.
 
-The entire site is built with Quartz and hosted on GitHub Pages. Since I'm a medical student still learning coding, web development, and blogging, I've included clear disclaimers on the website. This project was built with significant help from AI (using Google Antigravity) by capturing Mimik tutorials and writing scripts to automate screenshot generation. All external links to the official documentation are preserved, and there is a button in the sidebar you can click to compare any page with the latest manual commit.
+The entire site is built with Quartz and hosted on GitHub Pages. Since I'm a medical student still learning coding, web development, and blogging, I've included clear disclaimers on the website.
+
+> [!NOTE]
+> This project was built with significant help from AI (using Google Antigravity) by capturing Mimik tutorials and writing scripts to automate screenshot generation. All external links to the official documentation are preserved, and there is a button in the sidebar you can click to compare any page with the latest manual commit.
 
 To gain hands-on experience with open-source collaboration, I added a "Suggest an Edit" button so even total beginners can contribute, and enabled Giscus so I can learn how GitHub discussions work. If you find this repository useful, please consider giving it a star! All credit for the original manual goes to the Anki creator and team—I don't own any part of their original work. The adapted manual remains under CC BY-SA 4.0, and my custom code is licensed under MIT.
 
