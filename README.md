@@ -38,9 +38,7 @@ Hello! I'm a big fan of Anki and built this fan project to learn how to use GitH
 
 ## Screenshots
 
-![Anki Interactive Manual Home](docs/assets/readme/home.png)
-
-![Interactive Mermaid Diagram & Mimik Walkthrough](docs/assets/readme/walkthrough.png)
+![Anki Interactive Manual — Interactive Mimik Walkthrough](docs/assets/readme/mimik-light.png)
 
 ## Tools & Stack Used
 
