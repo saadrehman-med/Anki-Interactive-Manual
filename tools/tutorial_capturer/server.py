@@ -60,6 +60,14 @@ class _RequestHandler(BaseHTTPRequestHandler):
             except Exception as exc:  # noqa: BLE001
                 self._send_json(500, {"ok": False, "error": str(exc)})
             return
+        if self.path.startswith("/inspect"):
+            try:
+                window = "main" if "window=main" in self.path else "active_dialog"
+                res = get_dispatcher().call(lambda: handle_action({"action": "inspect_ui", "window": window}))
+                self._send_json(200, res)
+            except Exception as exc:  # noqa: BLE001
+                self._send_json(500, {"ok": False, "error": str(exc)})
+            return
         self._send_json(404, {"error": "Not found"})
 
     def do_POST(self) -> None:  # noqa: N802

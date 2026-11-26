@@ -138,15 +138,43 @@ def _inspect_qt(payload: dict[str, Any]) -> dict[str, Any]:
 
 @register_action("close_dialogs")
 def _close_dialogs(_payload: dict[str, Any]) -> dict[str, Any]:
-    return {"closed": close_all_dialogs_and_menus()}
+    closed = close_all_dialogs_and_menus()
+    QApplication.processEvents()
+    time.sleep(0.15)
+    QApplication.processEvents()
+    return {"closed": closed}
 
 
 @register_action("reset_to_decks")
 def _reset_to_decks(_payload: dict[str, Any]) -> dict[str, Any]:
     close_all_dialogs_and_menus()
+    QApplication.processEvents()
+    time.sleep(0.1)
     mw.moveToState("deckBrowser")
     wait_for_web(mw, web_spec="bottom", selector="button", text="Create Deck", timeout=3.0)
     return {"state": mw.state}
+
+
+@register_action("inspect_ui")
+def _inspect_ui(payload: dict[str, Any]) -> dict[str, Any]:
+    win = find_target_window(payload.get("window", "active_dialog"))
+    widgets: list[dict[str, str]] = []
+    for w in win.findChildren(QWidget):
+        if not w.isVisible():
+            continue
+        cls = type(w).__name__
+        obj = w.objectName() or ""
+        txt = ""
+        if hasattr(w, "text") and callable(w.text):
+            try:
+                txt = (w.text() or "").strip()[:80]
+            except Exception:  # noqa: BLE001
+                txt = ""
+        if obj or txt:
+            widgets.append({"class_name": cls, "object_name": obj, "text": txt})
+        if len(widgets) >= 100:
+            break
+    return {"window_title": win.windowTitle(), "widgets": widgets}
 
 
 @register_action("open_deck_overview")
