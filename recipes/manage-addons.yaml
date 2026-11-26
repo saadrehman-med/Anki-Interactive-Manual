@@ -1,6 +1,6 @@
 id: manage-addons
-title: Managing Add-ons
-intro: Install, configure, toggle, or inspect files for Anki add-ons from the Add-ons dialog.
+title: Finding & Managing Add-ons
+intro: Find an add-on code on AnkiWeb, install it in Anki via Tools > Add-ons, and manage or configure installed add-ons.
 target_doc: docs/manual/addons.md
 
 setup:
@@ -14,8 +14,20 @@ setup:
     ms: 300
 
 steps:
-  - title: "Step 01: Open Tools > Add-ons"
-    output: step-01-tools-addons.webp
+  - title: "Step 01: Browse or Search AnkiWeb Add-ons"
+    output: step-01-ankiweb-browse.png
+    static_image: docs/assets/tutorials/ankiweb-addons/step-01-ankiweb-browse.png
+    caption: |
+      Visit [ankiweb.net/shared/addons](https://ankiweb.net/shared/addons) to browse add-ons sorted by **Title**, **Modified** date, or **Anki** version, or use the top-right **Search** bar.
+
+  - title: "Step 02: Copy the Add-on Code from the Download Section"
+    output: step-02-ankiweb-code.png
+    static_image: docs/assets/tutorials/ankiweb-addons/step-02-ankiweb-code.png
+    caption: |
+      Open the add-on's page, scroll to **Download**, verify **Supported Anki versions**, and copy the numeric code box (you can also use **All Add-Ons** or **Contact Author** below it).
+
+  - title: "Step 03: Open Tools > Add-ons"
+    output: step-03-tools-addons.webp
     window: main
     locate:
       mode: menu_item
@@ -25,13 +37,13 @@ steps:
       required: true
     highlight:
       color: "#FF5A36"
-      badge: "1"
+      badge: "3"
       badge_position: "right"
     caption: |
-      From the main menu bar, choose **Tools > Add-ons** (or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>).
+      From Anki's main menu bar, choose **Tools > Add-ons** (or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>).
 
-  - title: "Step 02: Install or Configure Add-ons"
-    output: step-02-addons-dialog.webp
+  - title: "Step 04: Install or Configure Add-ons"
+    output: step-04-addons-dialog.webp
     window: active_dialog
     pre_actions:
       - action: close_dialogs
@@ -46,8 +58,9 @@ steps:
       required: true
     highlight:
       color: "#FF5A36"
-      badge: "2"
+      badge: "4"
     caption: |
-      Click **Get Add-ons...** to install by AnkiWeb code, or select an installed add-on to use **Config**, **View Files**, **Toggle Enabled**, or **Delete**.
+      Click **Get Add-ons...** and paste the code from Step 2, or select an installed add-on to use **Config**, **View Files**, **Toggle Enabled**, or **Delete**.
     post_actions:
       - action: close_dialogs
+      - action: reset_to_decks

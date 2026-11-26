@@ -312,6 +312,15 @@ def run_recipe(recipe_path: Path, update_docs: bool = True, fast: bool = False) 
     saved_files: list[Path] = []
     for idx, step in enumerate(recipe["steps"], start=1):
         print(f"  -> {step['title']}")
+        if step.get("static_image"):
+            src = ROOT / step["static_image"]
+            out_file = out_dir / step["output"]
+            out_file.parent.mkdir(parents=True, exist_ok=True)
+            if src.resolve() != out_file.resolve():
+                out_file.write_bytes(src.read_bytes())
+            saved_files.append(out_file)
+            print(f"     copied static {out_file.relative_to(ROOT)}")
+            continue
         pre = step.get("pre_actions") or []
         post = step.get("post_actions") or []
         can_batch = not _has_ankiconnect_actions(pre) and not _has_ankiconnect_actions(post)
