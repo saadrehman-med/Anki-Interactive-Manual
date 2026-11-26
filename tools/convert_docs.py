@@ -200,6 +200,7 @@ def convert_markdown(content: str, rel_path: Path, existing_manual_slugs: set[st
     segments = split_code_segments(body)
     converted_parts: list[str] = []
 
+    angle_link_re = re.compile(r"(!?\[[^\]]*\])\(<(https?://[^>\s]+)>\)")
     link_re = re.compile(r"(!?\[[^\]]*\])\(([^)\s]+)\)")
     heading_id_re = re.compile(r"^(#{1,6}\s+.*?)\s*\{#[^}]+\}\s*$", re.MULTILINE)
     src_re = re.compile(r'(<img\b[^>]*\bsrc=["\'])(/media/[^"\']+)(["\'])')
@@ -210,6 +211,10 @@ def convert_markdown(content: str, rel_path: Path, existing_manual_slugs: set[st
             continue
         seg = convert_admonitions(seg)
         seg = heading_id_re.sub(r"\1", seg)
+        seg = angle_link_re.sub(
+            lambda m: f"{m.group(1)}({m.group(2).replace('(', '%28').replace(')', '%29')})",
+            seg,
+        )
         seg = link_re.sub(
             lambda m: f"{m.group(1)}({resolve_doc_target(m.group(2), rel_dir, existing_manual_slugs)})",
             seg,

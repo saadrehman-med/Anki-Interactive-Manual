@@ -6,7 +6,7 @@ import { classNames } from "../util/lang"
 
 const GitDiff: QuartzComponent = ({ displayClass, fileData }: QuartzComponentProps) => {
   const slug = fileData.slug ?? ""
-  if (slug === "guides" || slug.startsWith("guides/")) {
+  if (!slug.startsWith("manual/") || slug.endsWith("/index")) {
     return null
   }
   return (
