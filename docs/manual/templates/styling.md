@@ -11,9 +11,25 @@ title: "Styling & HTML"
 >
 > ---
 >
-> ## Step 01: Open Card Types and Select Styling
+> ## Step 01: Open the Add Window from the Home Screen
 >
-> ![Step 01: Open Card Types and Select Styling](../../assets/tutorials/card-styling-css/step-01-styling-tab.webp)
+> ![Step 01: Open the Add Window from the Home Screen](../../assets/tutorials/card-styling-css/step-01-home-add.webp)
+>
+> From the Anki home screen, click **Add** in the top toolbar (or press <kbd>A</kbd>) to open the note editor.
+>
+> ---
+>
+> ## Step 02: Click Cards... in the Editor
+>
+> ![Step 02: Click Cards... in the Editor](../../assets/tutorials/card-styling-css/step-02-open-cards.webp)
+>
+> In the **Add** window, click **Cards...** (or press <kbd>Ctrl</kbd>+<kbd>L</kbd>) to open the Card Types layout window.
+>
+> ---
+>
+> ## Step 03: Select Styling to Edit Card CSS
+>
+> ![Step 03: Select Styling to Edit Card CSS](../../assets/tutorials/card-styling-css/step-03-styling-tab.webp)
 >
 > In the **Cards...** (<kbd>Ctrl</kbd>+<kbd>L</kbd>) window, select the **Styling** radio button to edit the shared `.card` CSS rules while previewing live changes on the right.
 

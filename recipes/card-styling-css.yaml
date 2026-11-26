@@ -7,10 +7,32 @@ insert_after: "## Card Styling"
 setup:
   - action: close_dialogs
   - action: reset_to_decks
+  - action: resize_window
+    window: main
+    width: 1024
+    height: 700
+  - action: wait
+    ms: 300
 
 steps:
-  - title: "Step 01: Open Card Types and Select Styling"
-    output: step-01-styling-tab.webp
+  - title: "Step 01: Open the Add Window from the Home Screen"
+    output: step-01-home-add.webp
+    window: main
+    locate:
+      mode: web
+      web: toolbar
+      text: "Add"
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "1"
+      badge_position: "bottom-right"
+    caption: |
+      From the Anki home screen, click **Add** in the top toolbar (or press <kbd>A</kbd>) to open the note editor.
+
+  - title: "Step 02: Click Cards... in the Editor"
+    output: step-02-open-cards.webp
     window: active_dialog
     pre_actions:
       - action: setup_add_cards
@@ -19,6 +41,28 @@ steps:
         fields:
           Front: "What is the capital city of Japan?"
           Back: "Tokyo."
+      - action: resize_window
+        window: active_dialog
+        width: 820
+        height: 620
+      - action: wait
+        ms: 300
+    locate:
+      mode: web
+      selector: 'button[title*="Customize Card Templates"]'
+      padding: 6
+      required: true
+    highlight:
+      color: "#FF5A36"
+      badge: "2"
+      badge_position: "bottom-right"
+    caption: |
+      In the **Add** window, click **Cards...** (or press <kbd>Ctrl</kbd>+<kbd>L</kbd>) to open the Card Types layout window.
+
+  - title: "Step 03: Select Styling to Edit Card CSS"
+    output: step-03-styling-tab.webp
+    window: active_dialog
+    pre_actions:
       - action: open_card_layout
       - action: resize_window
         window: active_dialog
@@ -35,8 +79,9 @@ steps:
       required: true
     highlight:
       color: "#FF5A36"
-      badge: "1"
+      badge: "3"
     caption: |
       In the **Cards...** (<kbd>Ctrl</kbd>+<kbd>L</kbd>) window, select the **Styling** radio button to edit the shared `.card` CSS rules while previewing live changes on the right.
     post_actions:
       - action: close_dialogs
+      - action: reset_to_decks
