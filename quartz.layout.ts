@@ -6,6 +6,7 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+    Component.WelcomeModal(),
     Component.ConditionalRender({
       component: Component.Comments({
         provider: "giscus",

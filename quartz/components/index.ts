@@ -27,6 +27,7 @@ import ConditionalRender from "./ConditionalRender"
 import FloatingButtons from "./FloatingButtons"
 import DocsStats from "./DocsStats"
 import SidebarFooter from "./SidebarFooter"
+import WelcomeModal from "./WelcomeModal"
 
 export {
   ArticleTitle,
@@ -58,4 +59,5 @@ export {
   FloatingButtons,
   DocsStats,
   SidebarFooter,
+  WelcomeModal,
 }
